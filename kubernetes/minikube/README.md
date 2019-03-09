@@ -2,7 +2,7 @@ Various samples for webMethods Microservices Runtime
 
 This project uses the Apache License Version 2.0. For details, see [the license file](LICENSE).
 
-Refer to [TECHcommunity article] (http://techcommunity.softwareag.com/pwiki/-/wiki/Main/Running+webMethods+Microservices+Runtime+on+Kubernetes) on details about using templates in this folder.
+Refer to [TECHcommunity article](http://techcommunity.softwareag.com/pwiki/-/wiki/Main/Running+webMethods+Microservices+Runtime+on+Kubernetes) on details about using templates in this folder.
 
 Important!
 --
