@@ -1,0 +1,314 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.36">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.0">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_DIR</name>
+          <description>
+
+</description>
+          <defaultValue>/opt/softwareag/resources</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>SKIP_SUM</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>NO</string>
+              <string>YES</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>SKIP_CONFIGURATION</name>
+          <description>
+
+Empower Credentials</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>YES</string>
+              <string>NO</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_EMPOWER_USERNAME</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>SAG_EMPOWER_PASSWORD</name>
+          <description>
+
+Installer Configurations</description>
+          <defaultValue>{AQAAABAAAAAQ5y3+PZsU6UQqGb4Qq37uS4lQ+dr/YyPJ/+xjb+er+bY=}</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_INSTALLER_BIN</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/SoftwareAGInstaller20191216-LinuxX86.bin</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_INSTALLER_SCRIPT</name>
+          <description>Example:  msrInstallerLinuxScript_10_5.txt  , msrInstallerLinuxScript_10_3.txt</description>
+          <defaultValue>${SAG_DIR}/msrInstallerLinuxScript_10_5.txt</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_INSTALLER_SANDBOX</name>
+          <description>Example:  https\://sdc.softwareag.com/cgi-bin/dataservewebM105.cgi (10.5) ,  https\://sdc.softwareag.com/cgi-bin/dataservewebM103.cgi (10.3)
+
+
+MSR Configurations
+</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_MSR_DIR</name>
+          <description></description>
+          <defaultValue>/opt/softwareag/msr</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_MSR_LICENSE_FILE</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/licenseKey.xml</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_MSR_DEFAULT_PORT</name>
+          <description></description>
+          <defaultValue>5555</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_MSR_DIAGNOSTIC_PORT</name>
+          <description>
+
+SUM Configurations</description>
+          <defaultValue>9999</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_SUM_INSTALLER_BIN</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/SoftwareAGUpdateManagerInstaller20191101(LinuxX86).bin</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_SUM_DIR</name>
+          <description></description>
+          <defaultValue>/opt/softwareag/sagsum</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_SUM_SCRIPT</name>
+          <description>
+
+MSR Pre-Configurations</description>
+          <defaultValue>${SAG_DIR}/sum.txt</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ACDL_FILE</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/isconfiguration.acdl</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ACDL_BIN_FILE</name>
+          <description>
+
+Test Configuration</description>
+          <defaultValue>${SAG_DIR}/isconfiguration.zip</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_TEST_SCRIPT</name>
+          <description>
+
+DOCKER Configurations</description>
+          <defaultValue>${SAG_DIR}/test.sh</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_REPO_URL</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_TAG</name>
+          <description>Example: 10.5.0.2. 10.3.0.9</description>
+          <defaultValue>10.5.0.2</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_BASE_IMAGE_NAME</name>
+          <description></description>
+          <defaultValue>centos:7</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.78">
+    <script>pipeline {
+   agent any
+
+   stages {
+       stage(&apos;Install MSR&apos;){
+           steps
+           {
+               sh label: &apos;&apos;, script:&apos;&apos;&apos;if [ &quot;$(sudo lsof -i:$SAG_MSR_DEFAULT_PORT -t)&quot; ]; then
+                                        sudo kill -9 $(sudo lsof -i:$SAG_MSR_DEFAULT_PORT -t)
+                                       fi&apos;&apos;&apos;
+               sh label: &apos;&apos;, script:&apos;&apos;&apos;if [ &quot;$(sudo lsof -i:8092 -t)&quot; ]; then
+                                        sudo kill -9 $(sudo lsof -i:8092 -t)
+                                       fi&apos;&apos;&apos;
+               sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ -d $SAG_MSR_DIR ]; then
+                                           sudo rm $SAG_MSR_DIR -r
+                                        fi&apos;&apos;&apos;
+               sh label: &apos;&apos;, script: &apos;sudo sed -i &quot;s#^ServerURL=.*#ServerURL=\$SAG_INSTALLER_SANDBOX#g; s#^InstallDir=.*#InstallDir=\$SAG_MSR_DIR#g;  s#^integrationServer.LicenseFile.text=__VERSION1__,.*#integrationServer.LicenseFile.text=__VERSION1__,\$SAG_MSR_LICENSE_FILE#g; s#^IntegrationServerPort=__VERSION1__.*#IntegrationServerPort=__VERSION1__,\$SAG_MSR_DEFAULT_PORT#g; s#^IntegrationServerdiagnosticPort=__VERSION1__.*#IntegrationServerdiagnosticPort=__VERSION1__,\$SAG_MSR_DIAGNOSTIC_PORT#g; s#^Username=.*#Username=\$SAG_EMPOWER_USERNAME#g; s#^Password=.*#Password=\$SAG_EMPOWER_PASSWORD#g&quot; $SAG_INSTALLER_SCRIPT&apos; 
+               sh label: &apos;&apos;, script: &apos;sudo  $SAG_INSTALLER_BIN  -readScript $SAG_INSTALLER_SCRIPT  -console  -scriptErrorInteract no&apos;
+           }
+       }
+       stage(&apos;Install SUM&apos;){
+           steps
+           {
+                sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ -d $SAG_SUM_DIR ]; then
+                                           sudo rm $SAG_SUM_DIR -r
+                                        fi&apos;&apos;&apos;
+               
+               sh label: &apos;&apos;, script: &apos; sudo &quot;$SAG_SUM_INSTALLER_BIN&quot; --accept-license -d $SAG_SUM_DIR&apos;
+           }
+       }
+       
+      stage(&apos;Install Fixes&apos;) {
+          when {
+               expression{
+                  return (&quot;${env.SKIP_SUM}&quot; == &apos;NO&apos;)
+               }
+           }
+         steps {
+             sh label: &apos;&apos;, script: &apos;sudo sed -i &quot;s#^installDir=.*#installDir=\$SAG_MSR_DIR#g; s#^empowerUser=.*#empowerUser=\$SAG_EMPOWER_USERNAME#g&quot; $SAG_SUM_SCRIPT&apos;
+             sh label: &apos;&apos;, script: &apos;sudo  $SAG_SUM_DIR/bin/UpdateManagerCMD.sh -readScript $SAG_SUM_SCRIPT  -console  -scriptErrorInteract no&apos;
+        }
+      }
+	   stage(&apos;Configure MSR&apos;){
+	        when {
+               expression{
+                   return (&quot;${env.SKIP_CONFIGURATION}&quot; == &apos;NO&apos;)
+               }
+           }
+          steps
+          {  
+              sh label: &apos;&apos;, script:&apos;sudo $SAG_MSR_DIR/IntegrationServer/bin/startContainer.sh&apos;
+             
+              sh label: &apos;&apos;, script: &apos;&apos;&apos; set +x
+                                    echo &quot;Sleep until server is up&quot;
+                                    while [ ! -n &quot;$(sudo curl -Is http://localhost:$SAG_MSR_DEFAULT_PORT -u Administrator:manage | head -1)&quot; ]
+                                     do
+                                      sleep 5
+                                    done 
+                                    set -x&apos;&apos;&apos;
+              sh label: &apos;&apos;, script: &apos;sudo java -classpath &quot;$SAG_DIR/wm-deploy.jar&quot;:&quot;$SAG_MSR_DIR/common/lib/*&quot;:&quot;$SAG_MSR_DIR/IntegrationServer/lib/*&quot;:&quot;$SAG_MSR_DIR/common/lib/glassfish/*&quot; com.softwareag.deployer.ConfigurationProvisioner $ACDL_FILE $ACDL_BIN_FILE $SAG_MSR_DEFAULT_PORT&apos;
+			
+			  sh label: &apos;&apos;, script:&apos;sudo $SAG_MSR_DIR/IntegrationServer/bin/shutdown.sh&apos;
+           }
+      }
+      stage(&apos;Create Docker File&apos;) {
+          steps{
+         sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh createDockerfile -Dimage.name=$DOCKER_BASE_IMAGE_NAME &apos; 
+        sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh createPackageDockerfile&apos; 
+         }
+      }
+      stage(&apos;Build Docker Image&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh build&apos; 
+       sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh buildPackage&apos; 
+         }
+      }
+
+       stage(&apos;Start MSR&apos;) {
+         steps {
+         sh label: &apos;&apos;, script: &apos; sudo docker run -d -p $SAG_MSR_DEFAULT_PORT:5555 --name msc_1 is:microPkg&apos;
+         }
+      }
+      stage(&apos;Docker Info&apos;) {
+         steps {
+               sh label: &apos;&apos;, script: &apos;sudo docker images&apos; 
+               sh label: &apos;&apos;, script: &apos;sudo docker ps -a&apos; 
+         }
+      }
+     
+      stage(&apos;Test&apos;) {
+         steps {
+         sh label: &apos;&apos;, script: &apos;&apos;&apos; set +x
+                                   echo &quot;Sleep until server is up&quot;
+                                   
+                                   while [ ! -n &quot;$(sudo curl -Is http://localhost:5555 -u Administrator:manage | head -1)&quot; ]
+                                    do
+                                      sleep 10
+                                    done 
+                                    
+                                    set -x&apos;&apos;&apos;
+           sh label: &apos;&apos;, script: &apos;sudo $SAG_TEST_SCRIPT&apos;
+       
+         }
+      }
+      stage(&apos;Stop MSR&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -q -f name=msc_1)&quot; ]; then
+             if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
+                # cleanup
+                sudo docker stop msc_1
+            fi
+            
+        fi&apos;&apos;&apos;
+      
+         }
+      }
+      
+	   stage(&apos;Push docker image&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;
+              sudo docker tag is:microPkg $DOCKER_REPO_URL:$DOCKER_TAG
+              sudo docker push $DOCKER_REPO_URL:$DOCKER_TAG&apos;&apos;&apos;
+      
+         }
+      }
+      stage(&apos;Cleanup&apos;) {
+         steps {
+            
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;
+              sudo docker rm msc_1
+              sudo docker rmi $DOCKER_REPO_URL:$DOCKER_TAG -f
+              sudo docker rmi is:microPkg -f
+              sudo docker rmi is:micro -f&apos;&apos;&apos;
+      
+         }
+      }
+   }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

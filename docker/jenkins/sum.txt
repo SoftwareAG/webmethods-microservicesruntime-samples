@@ -1,0 +1,7 @@
+createEmpowerImage=N
+diagnoserKey=
+installDir=/opt/softwareag/msr
+action=Install fixes from Empower
+selectedFixes=spro:all
+empowerUser=
+empowerPwd=

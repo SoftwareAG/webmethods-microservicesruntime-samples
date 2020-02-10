@@ -1,0 +1,23 @@
+#Tue Dec 31 18:23:46 CET 2019
+IntegrationServerDBUser.Name=__VERSION1__,
+IntegrationServerDBURL.Name=__VERSION1__,
+Username=
+Password=
+InstallLocProducts=
+LicenseAgree=Accept
+IntegrationServer.RDBMS.Type=__VERSION1__,6,0_,1,2,3,4,5,Oracle,SQL+Server,DB2+for+Linux%2C+UNIX%2C+Windows,MySQL+Community+Edition,MySQL+Enterprise+Edition,PostgreSQL
+IntegrationServerDBPass.Name=__VERSION1__,
+ISExtOrInt=__VERSION1__,2,0,1_,External+RDBMS,Embedded+database
+IntegrationServerTitleBlock=0
+com.wm.distman.utils_panel1=0
+com.wm.distman.utils_panel0=0
+IntegrationServerDBblock=0
+IntegrationServerPort=__VERSION1__,5555
+IntegrationServerdiagnosticPort=__VERSION1__,9999
+IntegrationServerPool.Name=__VERSION1__,
+integrationServer.LicenseFile.text=__VERSION1__,
+ServerURL=https://sdc.softwareag.com/cgi-bin/dataservewebM105.cgi
+IntegrationServerDBMsgblock=1
+IntegrationServerSampleURLBlock=1
+InstallDir=/opt/softwareag/msr
+InstallProducts=e2ei/11/.latest/ACDL/ACDLDeployerSharedBundle,e2ei/11/.latest/SCG/tppSEC,e2ei/11/.latest/SCG/tppWS,e2ei/11/.latest/License/license,e2ei/11/.latest/CDC/DatabaseComponentConfiguratorCore,e2ei/11/.latest/SCG/tppGfJaxb,e2ei/11/.latest/integrationServer/integrationServerMigrationFrameworkLib,e2ei/11/.latest/CDC/PIEEmbeddedCdc,e2ei/11/.latest/UniversalMessaging/NUMSharedLibs,e2ei/11/.latest/SCG/tppAnt,e2ei/11/.latest/LICUtil/LICUtil,e2ei/11/.latest/SCG/WSSCore,e2ei/11/.latest/integrationServer/MSC,e2ei/11/.latest/Infrastructure/sjp,e2ei/11/.latest/integrationServer/PIECore,e2ei/11/.latest/SCG/tppServlet,e2ei/11/.latest/SCG/log4j,e2ei/11/.latest/Infrastructure/WISSharedLibs,e2ei/11/.latest/SCG/tppSpring,e2ei/11/.latest/SCG/tppSwagger,e2ei/11/.latest/TES/TESCommon,e2ei/11/.latest/SCG/tppGf,e2ei/11/.latest/SCG/tppCommons,e2ei/11/.latest/SCG/tppDB,e2ei/11/.latest/Broker/PIFSharedBundles,e2ei/11/.latest/SCG/tppParsers,e2ei/11/.latest/SCG/loggers,e2ei/11/.latest/SCG/tppModelling,e2ei/11/.latest/SCG/tppMisc,e2ei/11/.latest/SCG/tppSAML2,e2ei/11/.latest/SCG/SCGCommon,e2ei/11/.latest/LICSharedLibsJava/LICSharedLibsJava,e2ei/11/.latest/Broker/BrokerJMSShared
