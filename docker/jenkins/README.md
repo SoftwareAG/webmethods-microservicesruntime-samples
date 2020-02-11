@@ -148,7 +148,7 @@ Push the docker image into specified Docker hub URL
 Clean up the environment such as removing containers and images.
 Explain how to run the automated tests for this system
 
-## Parameters 
+## Jenkins Parameters 
 | Parameter               	| Description                                                                                                              	| Default                                                  	| Possible Values                                          	| Required                      	|
 |-------------------------	|--------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------	|----------------------------------------------------------	|-------------------------------	|
 | SAG_DIR                 	| Directory to store resources such as SAG installer bin, SAG installer script, license key file, SUM script, test script. 	| /opt/softwareag/resources                                	|                                                          	| Yes                           	|
