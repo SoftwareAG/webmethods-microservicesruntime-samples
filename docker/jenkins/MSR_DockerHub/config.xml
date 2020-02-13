@@ -1,0 +1,138 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.36">
+  <actions>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.0"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.0">
+      <jobProperties/>
+      <triggers/>
+      <parameters/>
+      <options/>
+    </org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction>
+  </actions>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_DIR</name>
+          <description></description>
+          <defaultValue>/opt/softwareag/resources</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_REPO_URL</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_TAG</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>SAG_MSR_DEFAULT_PORT</name>
+          <description></description>
+          <defaultValue>5555</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ACDL_FILE</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/isconfiguration.acdl</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ACDL_BIN_FILE</name>
+          <description></description>
+          <defaultValue>${SAG_DIR}/isconfiguration.zip</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>DOCKER_COMMIT_TAG</name>
+          <description></description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.78">
+    <script>pipeline {
+   agent any
+
+   stages {
+        stage(&apos;Pull Docker&apos;) {
+         steps {
+         sh label: &apos;&apos;, script: &apos; sudo docker pull $DOCKER_REPO_URL:$DOCKER_TAG&apos;
+         }
+        }
+       stage(&apos;Start MSR&apos;) {
+         steps {
+         sh label: &apos;&apos;, script: &apos;&apos;&apos; sudo docker run -d -p $SAG_MSR_DEFAULT_PORT:5555 --name msc_1 $DOCKER_REPO_URL:$DOCKER_TAG
+		                           sudo docker cp msc_1:/opt/softwareag /opt/softwareag/msc_1 &apos;&apos;&apos;
+         }
+      }
+     stage(&apos;Configure MSR&apos;){
+          steps
+          {  
+             
+              sh label: &apos;&apos;, script: &apos;&apos;&apos; set +x
+                                    echo &quot;Sleep until server is up&quot;
+                                    while [ ! -n &quot;$(sudo curl -Is http://localhost:$SAG_MSR_DEFAULT_PORT -u Administrator:manage | head -1)&quot; ]
+                                     do
+                                      sleep 5
+                                    done 
+                                    set -x&apos;&apos;&apos;
+              sh label: &apos;&apos;, script: &apos;sudo java -classpath &quot;$SAG_DIR/wm-deploy.jar&quot;:&quot;/opt/softwareag/msc_1/common/lib/*&quot;:&quot;/opt/softwareag/msc_1/IntegrationServer/lib/*&quot;:&quot;/opt/softwareag/msc_1/common/lib/glassfish/*&quot; com.softwareag.deployer.ConfigurationProvisioner $ACDL_FILE $ACDL_BIN_FILE $SAG_MSR_DEFAULT_PORT&apos;
+			
+           }
+      }
+      stage(&apos;Stop MSR&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -q -f name=msc_1)&quot; ]; then
+             if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
+                sudo docker stop msc_1
+            fi
+            
+        fi&apos;&apos;&apos;
+      
+         }
+      }
+	  
+      stage(&apos;Docker Commit&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;
+              sudo  docker commit msc_1  $DOCKER_REPO_URL:$DOCKER_COMMIT_TAG&apos;&apos;&apos;
+      
+         }
+      }
+      
+	  stage(&apos;Push docker image&apos;) {
+         steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;
+              sudo docker push $DOCKER_REPO_URL:$DOCKER_COMMIT_TAG&apos;&apos;&apos;
+      
+         }
+      }
+        
+      stage(&apos;Cleanup&apos;) {
+         steps {
+            
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;
+              sudo docker rm msc_1
+              sudo docker rmi $DOCKER_REPO_URL:$DOCKER_TAG -f
+              sudo docker rmi $DOCKER_REPO_URL:$DOCKER_COMMIT_TAG -f
+              sudo rm /opt/softwareag/msc_1 -r&apos;&apos;&apos;
+      
+         }
+      }
+   }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>
