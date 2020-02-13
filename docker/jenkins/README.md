@@ -91,12 +91,11 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 
 ### One time setup
- * Download MSR_Docker folder, msrInstallerLinuxScript_10_3.txt, msrInstallerLinuxScript_10_5.txt, sum.txt, test.sh, wm-deploy.jar from this respository
  * Create folder /opt/softwareag/resources
- * Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/
- * Download Software AG Update Manager Installer from https://empower.softwareag.com/ 
+ * Download MSR_Docker folder, msrInstallerLinuxScript_10_3.txt, msrInstallerLinuxScript_10_5.txt, sum.txt, test.sh, wm-deploy.jar from this respository to /opt/softwareag/resources
+ * Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/  into /opt/softwareag/resources
+ * Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/  into /opt/softwareag/resources
  * Copy license file(licenseKey.xml) into /opt/softwareag/resources
- * Place all downloaded resources under /opt/softwareag/resources
  * Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) in any desired location (lets say /opt/softwareag/sagsum)
  * Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum/bin
  * Select option 9. Password Encryption, type Empower password to encrypt the password 
