@@ -92,9 +92,10 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 ### One time setup
  * Create folder /opt/softwareag/resources
- * Download MSR_Docker folder, msrInstallerLinuxScript_10_3.txt, msrInstallerLinuxScript_10_5.txt, sum.txt, test.sh, wm-deploy.jar from this respository to /opt/softwareag/resources
- * Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/  into /opt/softwareag/resources
- * Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/  into /opt/softwareag/resources
+ * Clone current repository into /opt/softwareag/resources
+ * cd into /opt/softwareag/resources and it would contain MSR_Docker folder, msrInstallerLinuxScript_10_3.txt, msrInstallerLinuxScript_10_5.txt, sum.txt, test.sh, wm-deploy.jar 
+ * Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx  into /opt/softwareag/resources
+ * Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx  into /opt/softwareag/resources
  * Copy license file(licenseKey.xml) into /opt/softwareag/resources
  * Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) in any desired location (lets say /opt/softwareag/sagsum)
  * Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum/bin
@@ -109,7 +110,7 @@ jenkins ALL=(ALL) NOPASSWD: ALL
   * Click "Build with Parameters" from the options in the left
   * Provide valid parameters and click build.
    
-## Jenkins Pipeline 12 stages
+## Jenkins Pipeline stages
 ##### Install MSR  
   Installs the MSR based on the parameters specified for Installer Configurations
 ##### Install SUM  
@@ -118,7 +119,7 @@ jenkins ALL=(ALL) NOPASSWD: ALL
  Installs all the fixes to the installed MSR
 
 ##### Configure MSR
- This step is conditional. If SKIP_CONFIGURATION is set to NO then based on MSR Pre-Configurations, the configurations will be applied to the installed MSR
+ This step is conditional. If APPLY_CONFIGURATION is set to YES then based on MSR Pre-Configurations, the configurations will be applied to the installed MSR
 
 ##### Create Docker File
  Creates Docker file for the installed MSR with latest fixes and optionally configurations.
@@ -149,8 +150,8 @@ Explain how to run the automated tests for this system
 | Parameter               	| Description                                                                                                              	| Default                                                  	| Possible Values                                          	| Required                      	|
 |-------------------------	|--------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------	|----------------------------------------------------------	|-------------------------------	|
 | SAG_DIR                 	| Directory to store resources such as SAG installer bin, SAG installer script, license key file, SUM script, test script. 	| /opt/softwareag/resources                                	|                                                          	| Yes                           	|
-| SKIP_SUM                	| Skips the update manager step if set to YES                                                                              	| NO                                                       	|                                                          	| Yes                           	|
-| SKIP_CONFIGURATION      	| Skips the configuration step if set to YES                                                                               	| YES                                                      	|                                                          	| Yes                           	|
+| INSTALL_FIXES                	| Installs fixes if set to YES                                                                              	| YES                                                       	|                                                          	| Yes                           	|
+| APPLY_CONFIGURATION      	| Applies configuration if set to YES                                                                               	| NO                                                      	|                                                          	| Yes                           	|
 | SAG_EMPOWER_USERNAME    	| Empower Username                                                                                                         	|                                                          	|                                                          	| Yes                           	|
 | SAG_EMPOWER_PASSWORD    	| Empower Password                                                                                                         	|                                                          	|                                                          	| Yes                           	|
 | SAG_INSTALLER_BIN       	| SAG installer bin file name                                                                                              	| SoftwareAGInstaller-Linux_x86_64.bin                     	|                                                          	| Yes                           	|
@@ -166,8 +167,8 @@ Explain how to run the automated tests for this system
 |                         	|                                                                                                                          	|                                                          	| SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin   	|                               	|
 | SAG_SUM_DIR             	| SUM installed directory                                                                                                  	| /opt/softwareag/sagsum                                   	|                                                          	| Yes                           	|
 | SAG_SUM_SCRIPT          	| SUM update manager script file name                                                                                      	| sum.txt                                                  	|                                                          	| Yes                           	|
-| ACDL_FILE               	| ACDL filename to configure MSR                                                                                           	| isconfiguration.acdl                                     	|                                                          	| Depends on SKIP_CONFIGURATION 	|
-| ACDL_BIN_FILE           	| ACDL package (.zip) filename to configure MSR                                                                            	| isconfiguration.zip                                      	|                                                          	| Depends on SKIP_CONFIGURATION 	|
+| ACDL_FILE               	| ACDL filename to configure MSR                                                                                           	| isconfiguration.acdl                                     	|                                                          	| Depends on APPLY_CONFIGURATION 	|
+| ACDL_BIN_FILE           	| ACDL package (.zip) filename to configure MSR                                                                            	| isconfiguration.zip                                      	|                                                          	| Depends on APPLY_CONFIGURATION 	|
 | SAG_TEST_SCRIPT         	| Test script file name                                                                                                    	| test.sh                                                  	|                                                          	| Yes                           	|
 | DOCKER_REPO_URL         	| Docker Repository                                                                                                        	|                                                          	|                                                          	| Yes                           	|
 | DOCKER_TAG              	| Docker Tag                                                                                                               	| 10.5.0.2                                                 	|                                                          	| Yes                           	|
@@ -179,8 +180,8 @@ Explain how to run the automated tests for this system
 | Parmeters               	| Values                                                            	|
 |-------------------------	|-------------------------------------------------------------------	|
 | SAG_DIR                 	| /opt/softwareag/resources                                         	|
-| SKIP_SUM                	| NO                                                                	|
-| SKIP_CONFIGURATION      	| YES                                                               	|
+| INSTALL_FIXES                	| YES                                                                	|
+| APPLY_CONFIGURATION      	| NO                                                               	|
 | SAG_EMPOWER_USERNAME    	| empower username                                                  	|
 | SAG_EMPOWER_PASSWORD    	| empower password                                                  	|
 | SAG_INSTALLER_BIN       	| ${SAG_DIR}/SoftwareAGInstaller20191216-LinuxX86.bin               	|
@@ -206,8 +207,8 @@ Explain how to run the automated tests for this system
 | Parmeters               	| Values                                                            	|
 |-------------------------	|-------------------------------------------------------------------	|
 | SAG_DIR                 	| /opt/softwareag/resources                                         	|
-| SKIP_SUM                	| NO                                                                	|
-| SKIP_CONFIGURATION      	| YES                                                               	|
+| INSTALL_FIXES                	| YES                                                               	|
+| APPLY_CONFIGURATION      	| NO                                                               	|
 | SAG_EMPOWER_USERNAME    	| empower username                                                  	|
 | SAG_EMPOWER_PASSWORD    	| empower password                                                  	|
 | SAG_INSTALLER_BIN       	| ${SAG_DIR}/SoftwareAGInstaller20191216-LinuxX86.bin               	|
