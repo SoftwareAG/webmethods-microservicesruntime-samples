@@ -23,24 +23,24 @@
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
-          <name>SKIP_SUM</name>
+          <name>INSTALL_FIXES</name>
           <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>NO</string>
               <string>YES</string>
+              <string>NO</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
-          <name>SKIP_CONFIGURATION</name>
+          <name>APPLY_CONFIGURATION</name>
           <description>
 
 Empower Credentials</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>YES</string>
               <string>NO</string>
+              <string>YES</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -203,7 +203,7 @@ DOCKER Configurations</description>
       stage(&apos;Install Fixes&apos;) {
           when {
                expression{
-                  return (&quot;${env.SKIP_SUM}&quot; == &apos;NO&apos;)
+                  return (&quot;${env.INSTALL_FIXES}&quot; == &apos;YES&apos;)
                }
            }
          steps {
@@ -214,7 +214,7 @@ DOCKER Configurations</description>
 	   stage(&apos;Configure MSR&apos;){
 	        when {
                expression{
-                   return (&quot;${env.SKIP_CONFIGURATION}&quot; == &apos;NO&apos;)
+                   return (&quot;${env.APPLY_CONFIGURATION}&quot; == &apos;YES&apos;)
                }
            }
           steps
