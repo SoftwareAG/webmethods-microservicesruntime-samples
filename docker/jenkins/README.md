@@ -11,7 +11,7 @@ This project allows user to quickly install Software AG Microservices Runtime, i
  * Docker
  * Jenkins
  
-**Note:** If above softwares were already installed, scroll down to 'one time setup'
+**Note:** If above softwares were already installed, check 'Installing Docker' and 'Installing Jenkins and providing sudo sccess' sections below to verify all steps were covered and scroll down to 'one time setup'
 ### Installing Docker (CentOS 7 / RHEL 7)
 
 A step by step series of examples that tell you how to install Docker in CentOS 7 / RHEL 7
