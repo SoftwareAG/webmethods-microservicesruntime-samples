@@ -144,7 +144,7 @@ Push the docker image into specified Docker hub URL
 
 ##### Cleanup
 Clean up the environment such as removing containers and images.
-Explain how to run the automated tests for this system
+
 
 ## Jenkins Parameters 
 | Parameter               	| Description                                                                                                              	| Default                                                  	| Possible Values                                          	| Required                      	|
