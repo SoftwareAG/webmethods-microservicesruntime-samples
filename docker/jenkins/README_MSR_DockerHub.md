@@ -146,7 +146,7 @@ Clean up the environment such as removing containers and images.
 | SAG_MSR_DEFAULT_PORT 	| 5555                                             	|
 | ACDL_FILE            	| ${SAG_DIR}/isconfiguration.acdl                  	|
 | ACDL_BIN_FILE        	| ${SAG_DIR}/isconfiguration.zip                   	|
-| DOCKER_TAG           	| 10.5.0.0_1                                       	|
+| DOCKER_COMMIT_TAG           	| 10.5.0.0_1                                       	|
 
 
 ## License
