@@ -1,0 +1,377 @@
+<asset_composite xmlns="http://namespaces.softwareag.com/acdl/1.0" targetNamespace="http://namespaces.softwareag.com/webMethods/IS" name="isconfiguration" runtimeVersion="10.5.0.0">
+  <implementation.generic type="isconfiguration" />
+  <buildInfo name="BuildVersion" value="10.5" />
+  <buildInfo name="BuildTimestamp" value="2020-02-12T22:30:23" />
+  <buildInfo name="MinimumTargetRuntimeVersion" value="10.5.0.0" />
+  <property name="suspendTasksDuringDeploy" displayName="Suspend Tasks During Deployment">
+    <value>none</value>
+  </property>
+  <property name="activateTasksAfterDeploy" displayName="Activate Tasks After Deployment">
+    <value>none</value>
+  </property>
+  <property name="enablePortsAfterDeploy" displayName="Enable Ports After Deployment">
+    <value>none</value>
+  </property>
+  <property name="reloadCacheManagersAfterDeployment" displayName="Reload Cache Managers After Deployment">
+    <value>none</value>
+  </property>
+  <asset name="ISProperty.watt.server.compile" displayName="watt.server.compile">
+    <implementation.generic type="isproperty" />
+    <property name="watt.server.compile">
+      <value>C:\SAG\10_3\jvm\jvm\bin\javac -classpath {0} -d {1} {2}</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.server.ns.hideWmRoot" displayName="watt.server.ns.hideWmRoot">
+    <implementation.generic type="isproperty" />
+    <property name="watt.server.ns.hideWmRoot">
+      <value>true</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.adminapi.group.readOnly" displayName="watt.adminapi.group.readOnly">
+    <implementation.generic type="isproperty" />
+    <property name="watt.adminapi.group.readOnly">
+      <value />
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.adminapi.log.clientErrors" displayName="watt.adminapi.log.clientErrors">
+    <implementation.generic type="isproperty" />
+    <property name="watt.adminapi.log.clientErrors">
+      <value>false</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.art.page.size" displayName="watt.art.page.size">
+    <implementation.generic type="isproperty" />
+    <property name="watt.art.page.size">
+      <value>10</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.art.synchronousNotification.selectExecuteUser" displayName="watt.art.synchronousNotification.selectExecuteUser">
+    <implementation.generic type="isproperty" />
+    <property name="watt.art.synchronousNotification.selectExecuteUser">
+      <value />
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.art.tmgr.timeout" displayName="watt.art.tmgr.timeout">
+    <implementation.generic type="isproperty" />
+    <property name="watt.art.tmgr.timeout">
+      <value>-1</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.adminapi.returnExceptions" displayName="watt.adminapi.returnExceptions">
+    <implementation.generic type="isproperty" />
+    <property name="watt.adminapi.returnExceptions">
+      <value>true</value>
+    </property>
+  </asset>
+  <asset name="ISProperty.watt.broker.sync.enableBrokerSync" displayName="watt.broker.sync.enableBrokerSync">
+    <implementation.generic type="isproperty" />
+    <property name="watt.broker.sync.enableBrokerSync">
+      <value>true</value>
+    </property>
+  </asset>
+  <asset name="Port.WmRoot.Regular.5555" displayName="HTTPListener@5555">
+    <implementation.generic type="isport" />
+    <property name="port" displayName="Port">
+      <value>5555</value>
+    </property>
+    <property name="bindAddress" displayName="Bind Address">
+      <value />
+    </property>
+    <property name="pkg" displayName="Package Name">
+      <value>WmRoot</value>
+    </property>
+    <property name="enable" displayName="Enable">
+      <value>true</value>
+    </property>
+    <property name="hostAccessMode" displayName="IP Access Type">
+      <value>global</value>
+    </property>
+    <property name="hostList" displayName="Hosts">
+      <value />
+    </property>
+  </asset>
+  <asset name="Port.WmRoot.Diagnostic.9999" displayName="HTTPListener@9999">
+    <implementation.generic type="isport" />
+    <property name="port" displayName="Port">
+      <value>9999</value>
+    </property>
+    <property name="bindAddress" displayName="Bind Address">
+      <value />
+    </property>
+    <property name="pkg" displayName="Package Name">
+      <value>WmRoot</value>
+    </property>
+    <property name="enable" displayName="Enable">
+      <value>true</value>
+    </property>
+    <property name="hostAccessMode" displayName="IP Access Type">
+      <value>global</value>
+    </property>
+    <property name="hostList" displayName="Hosts">
+      <value />
+    </property>
+  </asset>
+  <asset name="JNDIAlias.DEFAULT_IS_JNDI_PROVIDER" displayName="DEFAULT_IS_JNDI_PROVIDER">
+    <implementation.generic type="isjndialias" />
+    <property name="providerURL" displayName="Provider URL">
+      <value>nsp://localhost:9000</value>
+    </property>
+    <property name="providerURLFailoverList" displayName="Provider URL Failover List">
+      <value />
+    </property>
+    <property name="securityPrincipal" displayName="Security Principal">
+      <value />
+    </property>
+    <property name="securityCredentials" displayName="Security Credentials" isSecure="true">
+      <value>{AES}aYrXC43dTWsDUHRWG5mhTA==</value>
+    </property>
+  </asset>
+  <asset name="JMSAlias.DEFAULT_IS_JMS_CONNECTION" displayName="DEFAULT_IS_JMS_CONNECTION">
+    <implementation.generic type="isjmsalias" />
+    <property name="clientID" displayName="Connection Client ID">
+      <value>DEFAULT_IS_JMS_CLIENT</value>
+    </property>
+    <property name="user" displayName="User">
+      <value />
+    </property>
+    <property name="password" displayName="Password" isSecure="true">
+      <value>{AES}aYrXC43dTWsDUHRWG5mhTA==</value>
+    </property>
+    <property name="jndi_connectionFactoryLookupName" displayName="Connection Factory Lookup Name">
+      <value>local_um</value>
+    </property>
+    <property name="jndi_automaticallyCreateUMAdminObjects" displayName="Automatically Create Administered Objects">
+      <value>false</value>
+    </property>
+    <dependsOn>IS:JNDIAlias.DEFAULT_IS_JNDI_PROVIDER</dependsOn>
+  </asset>
+  <asset name="JMSAlias.PE_NONTRANSACTIONAL_ALIAS" displayName="PE_NONTRANSACTIONAL_ALIAS">
+    <implementation.generic type="isjmsalias" />
+    <property name="clientID" displayName="Connection Client ID">
+      <value>ISfa7bee54_966c_48ae_b0a1_a52fa87d9889</value>
+    </property>
+    <property name="user" displayName="User">
+      <value />
+    </property>
+    <property name="password" displayName="Password" isSecure="true">
+      <value>{AES}aYrXC43dTWsDUHRWG5mhTA==</value>
+    </property>
+    <property name="jndi_connectionFactoryLookupName" displayName="Connection Factory Lookup Name">
+      <value>local_um</value>
+    </property>
+    <property name="jndi_automaticallyCreateUMAdminObjects" displayName="Automatically Create Administered Objects">
+      <value>false</value>
+    </property>
+    <dependsOn>IS:JNDIAlias.DEFAULT_IS_JNDI_PROVIDER</dependsOn>
+  </asset>
+  <asset name="JDBCDriverAlias.DataDirect Connect JDBC MySQL Driver" displayName="DataDirect Connect JDBC MySQL Driver">
+    <implementation.generic type="isjdbcdriveralias" />
+  </asset>
+  <asset name="JDBCDriverAlias.DataDirect Connect JDBC PostGreSQL Driver" displayName="DataDirect Connect JDBC PostGreSQL Driver">
+    <implementation.generic type="isjdbcdriveralias" />
+  </asset>
+  <asset name="JDBCDriverAlias.MySQL Database Java Connector Driver" displayName="MySQL Database Java Connector Driver">
+    <implementation.generic type="isjdbcdriveralias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.Adapters" displayName="Adapters">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.CentralUsers" displayName="CentralUsers">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.DocumentHistory" displayName="DocumentHistory">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.ISCoreAudit" displayName="ISCoreAudit">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.ISInternal" displayName="ISInternal">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.MobileSupport" displayName="MobileSupport">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.ProcessAudit" displayName="ProcessAudit">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.ProcessEngine" displayName="ProcessEngine">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.TN" displayName="TN">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="JDBCFunctionalAlias.Xref" displayName="Xref">
+    <implementation.generic type="isjdbcfunctionalalias" />
+  </asset>
+  <asset name="KeystoreAlias.DEFAULT_IS_KEYSTORE" displayName="DEFAULT_IS_KEYSTORE">
+    <implementation.generic type="iskeystorealias" />
+    <property name="useSourceKeystore" displayName="Use Source Keystore">
+      <value>true</value>
+    </property>
+    <property name="ksPassword" displayName="Password" isSecure="true">
+      <value>{AES}Y5IgMqjfvkgbg7p5VUZztw==</value>
+    </property>
+    <property name="ksLocation" displayName="Location">
+      <value>../common/conf/keystore.jks</value>
+    </property>
+    <property name="keyAlias.ssos.keyAliasPassword" displayName="Password for Key Alias ssos" isSecure="true">
+      <value>{AES}Y5IgMqjfvkgbg7p5VUZztw==</value>
+    </property>
+  </asset>
+  <asset name="TruststoreAlias.DEFAULT_IS_TRUSTSTORE" displayName="DEFAULT_IS_TRUSTSTORE">
+    <implementation.generic type="istruststorealias" />
+    <property name="useSourceTruststore" displayName="Use Source Truststore">
+      <value>true</value>
+    </property>
+    <property name="ksPassword" displayName="Password" isSecure="true">
+      <value>{AES}Y5IgMqjfvkgbg7p5VUZztw==</value>
+    </property>
+    <property name="ksLocation" displayName="Location">
+      <value>../common/conf/platform_truststore.jks</value>
+    </property>
+  </asset>
+  <asset name="Broker.DefaultEndPoint" displayName="DefaultEndPoint">
+    <implementation.generic type="isbrokersettings" />
+    <property name="useSourceBrokerKeystore" displayName="Use Source Keystore">
+      <value>true</value>
+    </property>
+    <property name="useSourceBrokerTruststore" displayName="Use Source Truststore">
+      <value>true</value>
+    </property>
+    <property name="brokerHost" displayName="Broker Host">
+      <value />
+    </property>
+    <property name="brokerName" displayName="Broker Name">
+      <value>Broker #1</value>
+    </property>
+    <property name="clientGroupName" displayName="Client Group">
+      <value>IntegrationServer</value>
+    </property>
+    <property name="CLIENTPREFIX" displayName="Client Prefix">
+      <value>J_jRQtEolDEurgAVIwwwADXaZQs_</value>
+    </property>
+    <property name="brokerUser" displayName="Username">
+      <value />
+    </property>
+    <property name="brokerPassword" displayName="Password" isSecure="true">
+      <value>{AES}aYrXC43dTWsDUHRWG5mhTA==</value>
+    </property>
+    <property name="certfile" displayName="Keystore">
+      <value />
+    </property>
+    <property name="password" displayName="Keystore Password" isSecure="true">
+      <value>{AES}aYrXC43dTWsDUHRWG5mhTA==</value>
+    </property>
+    <property name="truststore" displayName="Truststore">
+      <value />
+    </property>
+  </asset>
+  <asset name="URLAlias.metrics" displayName="metrics">
+    <implementation.generic type="isurlalias" />
+    <dependsOn>IS:ISPackage.WmRoot</dependsOn>
+  </asset>
+  <asset name="URLAlias.health" displayName="health">
+    <implementation.generic type="isurlalias" />
+    <dependsOn>IS:ISPackage.WmRoot</dependsOn>
+  </asset>
+  <asset name="WSPolicy.Addressing.policy" displayName="Addressing">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.Addressing_Submission.policy" displayName="Addressing_Submission">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.KerberosAuthentication.policy" displayName="KerberosAuthentication">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.ReliableMessaging.policy" displayName="ReliableMessaging">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.SAMLAuthentication.policy" displayName="SAMLAuthentication">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.SAMLAuthentication_Encryption.policy" displayName="SAMLAuthentication_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.SAMLAuthentication_Signature.policy" displayName="SAMLAuthentication_Signature">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.SAMLAuthentication_Signature_Encryption.policy" displayName="SAMLAuthentication_Signature_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.Username_Encryption.policy" displayName="Username_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.Username_Over_Transport.policy" displayName="Username_Over_Transport">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.Username_Signature.policy" displayName="Username_Signature">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.Username_Signature_Encryption.policy" displayName="Username_Signature_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.X509Authentication.policy" displayName="X509Authentication">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.X509Authentication_Encryption.policy" displayName="X509Authentication_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.X509Authentication_Signature.policy" displayName="X509Authentication_Signature">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="WSPolicy.X509Authentication_Signature_Encryption.policy" displayName="X509Authentication_Signature_Encryption">
+    <implementation.generic type="iswspolicy" />
+  </asset>
+  <asset name="Parsing.Configuration" displayName="Configuration">
+    <implementation.generic type="isparsing" />
+    <property name="defaultPartitionBytes" displayName="Default Partition Bytes">
+      <value>20k</value>
+    </property>
+    <property name="useCache" displayName="Use Cache">
+      <value>false</value>
+    </property>
+    <property name="maximumHeapBytes" displayName="Maximum Heap Bytes">
+      <value>40%</value>
+    </property>
+    <property name="maximumDocBytes" displayName="Maximum Document Bytes">
+      <value>20%</value>
+    </property>
+    <property name="maximumBigMemoryBytes" displayName="Maximum BigMemory Bytes">
+      <value>200m</value>
+    </property>
+    <property name="useBigMemory" displayName="Use BigMemory">
+      <value>false</value>
+    </property>
+  </asset>
+  <asset name="FileAccessControlConfig.isfileaccesscontrol" displayName="FileAccessControl Config">
+    <implementation.generic type="isfileaccesscontrol" />
+    <property name="allowedWritePaths" displayName="Allowed Write Paths">
+      <value />
+    </property>
+    <property name="allowedReadPaths" displayName="Allowed Read Paths">
+      <value />
+    </property>
+    <property name="allowedDeletePaths" displayName="Allowed Delete Paths">
+      <value />
+    </property>
+  </asset>
+  <asset name="PasswordExpirationSettings.ispasswordexpirationsettings" displayName="Password Expiration Settings">
+    <implementation.generic type="ispasswordexpirationsettings" />
+    <property name="isEnabled" displayName="Enabled">
+      <value>false</value>
+    </property>
+    <property name="expirationInterval" displayName="Expiration Interval">
+      <value>90</value>
+    </property>
+    <property name="emailIds" displayName="Expiration Notice Email Addresses" data_type="text">
+      <value />
+    </property>
+    <property name="expiryEmailBefore" displayName="Expiration Email Reminders">
+      <value>3</value>
+    </property>
+    <property name="applicableUsers" displayName="Applies to Users">
+      <value />
+    </property>
+  </asset>
+</asset_composite>
+

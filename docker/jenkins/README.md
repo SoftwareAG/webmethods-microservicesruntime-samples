@@ -49,14 +49,6 @@ or Start Docker using service
 sudo service docker start
 ```
 
-Docker push "x509: certificate signed by unknown authority" counter measures 
-```
- sudo chmod 777 -R /home/EUR/{useraccount}
- sudo chmod 777 -R /etc/ssl/certs
- curl -k https://daerepository03.eur.ad.sag:4443/ca | sudo tee -a /home/EUR/{useraccount}/server.pem
- cat /home/EUR/{useraccount}/server.pem >> /etc/ssl/certs/ca-certificates.crt
-```
-
 ### Installing Jenkins and providing sudo sccess
 
 A step by step series of examples that tell you how to install Jenkins and provide sudo access to run docker
