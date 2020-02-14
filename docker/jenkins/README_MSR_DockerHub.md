@@ -95,7 +95,11 @@ jenkins ALL=(ALL) NOPASSWD: ALL
  * Clone current repository into /opt/softwareag/resources
  * cd into /opt/softwareag/resources and it would contain MSR_DockerHub folder, wm-deploy.jar 
  * Copy Configurations files(isconfiguration.acdl and isconfiguration.zip) into /opt/softwareag/resources
- * If jenkins is installed, copy 'MSR_DockerHub' folder into '/var/lib/jenkins/jobs' and restart the jenkins
+ * If jenkins is installed, copy 'MSR_DockerHub' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
+  ```
+  sudo chmod 777 /var/lib/jenkins/jobs/MSR_DockerHub  -R
+  ```
+  * Restart the jenkins
    ```
    sudo service jenkins restart
    ```

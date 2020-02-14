@@ -105,7 +105,7 @@ jenkins ALL=(ALL) NOPASSWD: ALL
  * Select option 9. Password Encryption, type Empower password to encrypt the password 
  * Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under /opt/softwareag/resources )
       *  empowerPwd=abcdefgh
- * If jenkins is installed, copy 'MSR_Docker' folder into '/var/lib/jenkins/jobs' and execute following command to access permission
+ * If jenkins is installed, copy 'MSR_Docker' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
   ```
   sudo chmod 777 /var/lib/jenkins/jobs/MSR_Docker  -R
   ```
