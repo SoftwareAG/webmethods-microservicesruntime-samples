@@ -98,11 +98,18 @@ jenkins ALL=(ALL) NOPASSWD: ALL
  * Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx  into /opt/softwareag/resources
  * Copy license file(licenseKey.xml) into /opt/softwareag/resources
  * Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) in any desired location (lets say /opt/softwareag/sagsum)
+   ```
+   sudo ./"SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin" --accept-license -d /opt/softwareag/sagsum
+   ```
  * Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum/bin
  * Select option 9. Password Encryption, type Empower password to encrypt the password 
  * Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under /opt/softwareag/resources )
       *  empowerPwd=abcdefgh
- * If jenkins is installed, copy 'MSR_Docker' folder into '/var/lib/jenkins/jobs' and restart the jenkins
+ * If jenkins is installed, copy 'MSR_Docker' folder into '/var/lib/jenkins/jobs' and execute following command to access permission
+  ```
+  sudo chmod 777 /var/lib/jenkins/jobs/MSR_Docker  -R
+  ```
+  * Restart the jenkins
    ```
    sudo service jenkins restart
    ```
