@@ -197,7 +197,7 @@ Clean up the environment such as removing containers and images.
 ## Jenkins Parameters 
 | Parameter               	| Description                                                                                                              	| Default                                                  	| Possible Values                                          	| Required                      	|
 |-------------------------	|--------------------------------------------------------------------------------------------------------------------------	|----------------------------------------------------------	|----------------------------------------------------------	|-------------------------------	|
-| SAG_DIR                 	| Directory to store resources such as SAG installer bin, SAG installer script, license key file, SUM script, test script. 	| /opt/softwareag/resources                                	|                                                          	| Yes                           	|
+| SAG_DIR                 	| Directory to store resources such as SAG installer bin, SAG installer script, license key file, SUM script, test script. 	| /opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources                                	|                                                          	| Yes                           	|
 | INSTALL_FIXES            	| Installs fixes if set to YES                                                                              	| YES                                                       	|                                                          	| Yes                           	|
 | APPLY_CONFIGURATION      	| Applies configuration if set to YES                                                                               	| NO                                                      	|                                                          	| Yes                           	|
 | SAG_EMPOWER_USERNAME    	| Empower Username                                                                                                         	|                                                          	|                                                          	| Yes                           	|
@@ -228,7 +228,7 @@ Clean up the environment such as removing containers and images.
    
 | Parmeters               	| Values                                                            	|
 |-------------------------	|-------------------------------------------------------------------	|
-| SAG_DIR                 	| /opt/softwareag/resources                                         	|
+| SAG_DIR                 	| /opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources                                         	|
 | INSTALL_FIXES                	| YES                                                                	|
 | APPLY_CONFIGURATION      	| NO                                                               	|
 | SAG_EMPOWER_USERNAME    	| empower username                                                  	|
@@ -255,7 +255,7 @@ Clean up the environment such as removing containers and images.
    
 | Parmeters               	| Values                                                            	|
 |-------------------------	|-------------------------------------------------------------------	|
-| SAG_DIR                 	| /opt/softwareag/resources                                         	|
+| SAG_DIR                 	| /opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources                                         	|
 | INSTALL_FIXES                	| YES                                                               	|
 | APPLY_CONFIGURATION      	| NO                                                               	|
 | SAG_EMPOWER_USERNAME    	| empower username                                                  	|
