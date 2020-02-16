@@ -6,12 +6,12 @@ This project provides samples to create and push Docker images for webMethods Mi
 
 There are two subfolders in this project. 
 
-1. MSR_Docker - Provides sample to create Docker image for Microservices Runtime from scratch
-2. MSR_DockerHub - Provides sample to create Docker image for Microservices Runtime from the base Docker image published on Dockerhub
+1. MSR_Docker - Provides sample to create Docker image for Microservices Runtime starting with the installation of MSR on on-prem. For details, see [README](README_MSR_Docker.md).
+2. MSR_DockerHub - Provides sample to create Docker image for Microservices Runtime from the base Docker image published on Dockerhub. For details, see [README](README_MSR_DockerHub.md).
 
 ## License
 
-This project uses the Apache License Version 2.0. For details, see [the license file](LICENSE).
+This project uses the Apache License Version 2.0. For details, see [the license file](../../LICENSE).
 
 For more information about Microservices Runtime, see the official Software AG Microservices Runtime documentation.
 
