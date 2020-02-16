@@ -155,7 +155,7 @@ Clean up the environment such as removing containers and images.
 
 ## License
 
-This project uses the Apache License Version 2.0. For details, see [the license file](LICENSE).
+This project uses the Apache License Version 2.0. For details, see [the license file](../../LICENSE).
 
 For more information about Microservices Runtime, see the official Software AG Microservices Runtime documentation.
 
