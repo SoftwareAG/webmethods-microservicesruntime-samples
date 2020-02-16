@@ -1,115 +1,42 @@
-## Work in progess ..
+# Microservices Runtime with DockerHub/Jenkins
 
-# Microservices Runtime  with DockerHub/Jenkins
+This project allows user to perform the following steps using the Jenkins pipeline
 
-This project allows user to quickly pull docker image, apply configurations, commit docker image and push docker image
+1. Pull Docker image of Microservices Runtime from Dockerhub
+2. Configure Mircoservices Runtime
+3. Create Docker image from configured Mircoservices Runtime
+4. Run tests against the Docker container started using the Docker image created above
+5. Push the created Docker image into Docker registry
 
-## Getting Started
-### Prerequisites
-
-  Install below softwares 
- * Docker
- * Jenkins
- 
-**Note:** If above softwares were already installed, check 'Installing Docker' and 'Installing Jenkins and providing sudo sccess' sections below to verify all steps were covered and scroll down to 'one time setup'
-### Installing Docker (CentOS 7 / RHEL 7)
-
-A step by step series of examples that tell you how to install Docker in CentOS 7 / RHEL 7
-
-Install Docker:
-```
-sudo yum install docker
-```
-
-
- First remove older version of docker (if any):
-```
-sudo yum remove docker docker-common docker-selinux docker-engine-selinux docker-engine docker-ce
-```
-
-Install required packages
-```
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-```
-
- Configure the docker-ce repo
-```
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-```
-Install docker-ce
-```
-sudo yum install docker-ce
-```
-Start Docker using systemctl
-```
-sudo systemctl start docker
-```
-or Start Docker using service
-```
-sudo service docker start
-```
-Login to Docker (Reference - https://docs.docker.com/engine/reference/commandline/login/)
-```
-sudo docker login -u [username] 
-```
-
-### Installing Jenkins and providing sudo sccess
-
-A step by step series of examples that tell you how to install Jenkins and provide sudo access to run docker
-
-Add the Jenkins repository to the yum repos, and install Jenkins from here.
-```
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-sudo yum install jenkins
-```
-
-Jenkins requires Java in order to run, yet certain distros don't include this by default. To install the Open Java Development Kit (OpenJDK) run the following:
-```
-sudo yum install java
-```
-
-Start Jenkins
-```
-sudo service jenkins start
-```
-
-Launch Jenkins as below and follow instructions in browser to change password and set up account
-```
-http://localhost:8080
-```
-**Note:** Jenkins requires sudo permissions to run docker commands
-
-Open the file sudoers
-```
-sudo vi /etc/sudoers 
-```
-Add below line to the file
-```
-jenkins ALL=(ALL) NOPASSWD: ALL
-```
-
+## To install and run the sample
 
 ### One time setup
- * Create folder /opt/softwareag/resources
- * Clone current repository into /opt/softwareag/resources
- * cd into /opt/softwareag/resources and it would contain MSR_DockerHub folder, wm-deploy.jar 
- * Copy Configurations files(isconfiguration.acdl and isconfiguration.zip) into /opt/softwareag/resources
- * If jenkins is installed, copy 'MSR_DockerHub' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
+
+1. Create directory /opt/softwareag in your environment. This is the default directory, you can set it to any other value. Please ensure to use this directory in the Jenkins job.
+
+2.	Clone the webmethods-microservicesruntime-samples repository. <br/>
+`git clone https://github.com/SoftwareAG/webmethods-microservicesruntime-samples.git`
+
+3. If jenkins is installed, copy 'webmethods-microservicesruntime-samples/docker/jenkins/MSR_DockerHub' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
+
   ```
   sudo chmod 777 /var/lib/jenkins/jobs/MSR_DockerHub  -R
   ```
-  * Restart the jenkins
+
+  Restart the jenkins
    ```
    sudo service jenkins restart
    ```
-  * After restart, click "MSR_DockerHub" in Jenkins dashboard (http://localhost:8080).
-  * Click "Build with Parameters" from the options in the left
-  * Provide valid parameters and click build.
+
+4. Optionally, if you need to configure Microservices runtime, copy isconfiguration.acdl and isconfiguration.zip files into 'webmethods-microservicesruntime-samples/docker/jenkins/resources` i.e. *resources* folder.
+
+5. Login to Jenkins dashboard (http://localhost:8080) and click on "MSR_DockerHub" job.
+
+6. Click "Build with Parameters" from the options in the left, provide valid parameters and click build. If everything is successful, you will see your Docker image published into the Docker registry with provided configuration.
    
 ## Jenkins Pipeline stages
 ##### Pull Docker  
-  Pulls Docker from the given docker repo and tag
+  Pulls the Docker image from the given Docker repository
 
 ##### Start MSR
  Starts the MSR in port 5555 within the  docker container 
