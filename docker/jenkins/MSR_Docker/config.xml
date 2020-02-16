@@ -1,8 +1,8 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <flow-definition plugin="workflow-job@2.36">
   <actions>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.0"/>
-    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.0">
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobAction plugin="pipeline-model-definition@1.5.1"/>
+    <org.jenkinsci.plugins.pipeline.modeldefinition.actions.DeclarativeJobPropertyTrackerAction plugin="pipeline-model-definition@1.5.1">
       <jobProperties/>
       <triggers/>
       <parameters/>
@@ -19,7 +19,7 @@
           <description>
 
 </description>
-          <defaultValue>/opt/softwareag/resources</defaultValue>
+          <defaultValue>/opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
@@ -55,12 +55,12 @@ Empower Credentials</description>
           <description>
 
 Installer Configurations</description>
-          <defaultValue>{AQAAABAAAAAQ5y3+PZsU6UQqGb4Qq37uS4lQ+dr/YyPJ/+xjb+er+bY=}</defaultValue>
+          <defaultValue>{AQAAABAAAAAQ1Y/6ynoj0DX/f0Q6TmLuglV5y9gGyeg8YNgMq7X13TI=}</defaultValue>
         </hudson.model.PasswordParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SAG_INSTALLER_BIN</name>
           <description></description>
-          <defaultValue>${SAG_DIR}/SoftwareAGInstaller20191216-LinuxX86.bin</defaultValue>
+          <defaultValue>${SAG_DIR}/installer.bin</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -71,12 +71,12 @@ Installer Configurations</description>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SAG_INSTALLER_SANDBOX</name>
-          <description>Example:  https\://sdc.softwareag.com/cgi-bin/dataservewebM105.cgi (10.5) ,  https\://sdc.softwareag.com/cgi-bin/dataservewebM103.cgi (10.3)
+          <description>Example: https://sdc.softwareag.com/cgi-bin/dataservewebM105.cgi (10.5) ,  https://sdc.softwareag.com/cgi-bin/dataservewebM103.cgi (10.3)
 
 
 MSR Configurations
 </description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://sdc.softwareag.com/cgi-bin/dataservewebM105.cgi</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -108,7 +108,7 @@ SUM Configurations</description>
         <hudson.model.StringParameterDefinition>
           <name>SAG_SUM_INSTALLER_BIN</name>
           <description></description>
-          <defaultValue>${SAG_DIR}/SoftwareAGUpdateManagerInstaller20191101(LinuxX86).bin</defaultValue>
+          <defaultValue>${SAG_DIR}/updatemanager.bin</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -150,7 +150,7 @@ DOCKER Configurations</description>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_REPO_URL</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>daerepository03.eur.ad.sag:4443/pie/webmethods-microservicesruntime</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -168,7 +168,7 @@ DOCKER Configurations</description>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.78">
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.79">
     <script>pipeline {
    agent any
 
