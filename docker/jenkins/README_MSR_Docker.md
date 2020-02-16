@@ -50,10 +50,14 @@ sudo yum install docker-ce
 
 Start Docker
 ```
-sudo systemctl start docker or sudo service docker start
+sudo systemctl start docker 
+
+or 
+
+sudo service docker start
 ```
 
-### Installing Jenkins and providing sudo access
+### Installing Jenkins
 
 Follow the steps below to install Jenkins in your environment.
 
@@ -75,7 +79,9 @@ sudo service jenkins start
 ```
 
 **Note:** Make sure port 8080 is accessible on the machine. You can use the following command to make port 8080 available.
-[sudo iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT] 
+```
+sudo iptables -I INPUT 1 -p tcp --dport 8080 -j ACCEPT
+```
 
 Launch Jenkins as below and follow instructions in browser to change password and set up account
 ```
@@ -91,7 +97,7 @@ sudo docker login -u [username]
 
 **Note:** Jenkins requires sudo permissions to run docker commands
 
-Follow the steps below to provide sudo access to run docker
+Follow the steps below to provide sudo access to run docker from Jenkins
 
 Open the file sudoers
 ```
