@@ -117,13 +117,13 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 `git clone https://github.com/SoftwareAG/webmethods-microservicesruntime-samples.git`
 
 3.	Go to the resources directory of the repository. <br/>
-`cd webmethods-microservicesruntime-samples/docker/jenkins/resources`
+`cd webmethods-microservicesruntime-samples/docker/jenkins/resources` i.e. *resources* folder.
 
-4. Copy your license file(licenseKey.xml) into resources folder.
+4. Copy your license file(licenseKey.xml) into *resources* folder.
 
-5. Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into resources folder
+5. Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder
 
-6. Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into resources folder
+6. Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder
 
 7. This step is required for supplying password to Update Manager. 
 
@@ -137,7 +137,7 @@ Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) i
    
    Select option 9. Password Encryption, type Empower password to encrypt the password 
    
-   Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under /opt/softwareag/resources)
+   Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under *resources* folder)
    * empowerPwd=abcdefgh
 
 8. If jenkins is installed, copy 'webmethods-microservicesruntime-samples/docker/jenkins/MSR_Docker' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
