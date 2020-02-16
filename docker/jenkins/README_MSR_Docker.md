@@ -121,9 +121,17 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 
 4. Copy your license file(licenseKey.xml) into *resources* folder.
 
-5. Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder
+5. Download Software AG Installer(.bin) file for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder. http://empowersdc.softwareag.com/dnld/wMInstaller/10.5/SoftwareAGInstaller20191216-LinuxX86.bin is one such example. Rename this file as installer.bin.
 
-6. Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder
+   ```
+   sudo chmod 777 installer.bin
+   ```
+
+6. Download Software AG Update Manager Installer for Linux from https://empower.softwareag.com/Products/DownloadProducts/sdc/default.aspx into *resources* folder. http://empowersdc.softwareag.com/dnld/wMInstaller/10.5/SoftwareAGUpdateManagerInstaller20200214(LinuxX86).bin is one such example. Rename this file as updatemanager.bin.
+
+   ```
+   sudo chmod 777 updatemanager.bin
+   ```
 
 7. This step is required for supplying password to Update Manager. 
 
@@ -151,9 +159,14 @@ Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) i
    sudo service jenkins restart
    ```
    
-9. Login to Jenkins dashboard (http://localhost:8080) and click on "MSR_Docker" job.
+9. Change permission for test.sh under *resource* folder
+  ```
+  sudo chmod 777 test.sh
+  ```
 
-10. Click "Build with Parameters" from the options in the left, provide valid parameters and click build. If everything is successful, you will see your Docker image published into the Docker registry.
+10. Login to Jenkins dashboard (http://localhost:8080) and click on "MSR_Docker" job.
+
+11. Click "Build with Parameters" from the options in the left, provide valid parameters and click build. If everything is successful, you will see your Docker image published into the Docker registry.
    
 ![Jenkins Stage View](stageview.png)
 
