@@ -150,7 +150,7 @@ DOCKER Configurations</description>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_REPO_URL</name>
           <description></description>
-          <defaultValue>daerepository03.eur.ad.sag:4443/pie/webmethods-microservicesruntime</defaultValue>
+          <defaultValue>localhost:4443/pie/webmethods-microservicesruntime</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
