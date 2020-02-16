@@ -4,10 +4,10 @@
 
 This project provides samples to create and push Docker images for webMethods Microservices Runtime using Jenkins pipeline.
 
-There are two subfolders in this project. 
+Sample describes two different ways to build Docker image for Microservices Runtime.
 
-1. MSR_Docker - Provides sample to create Docker image for Microservices Runtime starting with the installation of MSR on on-prem. For details, see [README](README_MSR_Docker.md).
-2. MSR_DockerHub - Provides sample to create Docker image for Microservices Runtime from the base Docker image published on Dockerhub. For details, see [README](README_MSR_DockerHub.md).
+1. [MSR_Docker](MSR_Docker) - Provides sample to create Docker image for Microservices Runtime starting with the installation of MSR on on-prem. For details, see [README](README_MSR_Docker.md).
+2. [MSR_DockerHub](MSR_DockerHub) - Provides sample to create Docker image for Microservices Runtime from the base Docker image published on Dockerhub. For details, see [README](README_MSR_DockerHub.md).
 
 ## License
 
