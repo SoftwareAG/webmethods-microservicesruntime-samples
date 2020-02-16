@@ -155,6 +155,8 @@ Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) i
 
 10. Click "Build with Parameters" from the options in the left, provide valid parameters and click build. If everything is successful, you will see your Docker image published into the Docker registry.
    
+![Jenkins Stage View](stageview.png)
+
 ## Jenkins Pipeline stages
 Jenkins job has multiple stages in the pipeline.
 
