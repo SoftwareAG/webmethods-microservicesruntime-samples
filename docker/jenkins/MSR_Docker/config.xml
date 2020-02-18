@@ -249,6 +249,16 @@ DOCKER Configurations</description>
       }
       stage(&apos;Build Docker Image&apos;) {
          steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker images -q $DOCKER_REPO_URL:$DOCKER_TAG)&quot; != &quot;&quot; ]; then
+                                   sudo docker rmi $DOCKER_REPO_URL:$DOCKER_TAG -f
+                               fi
+                               if [ &quot;$(sudo docker images -q is:microPkg)&quot; != &quot;&quot; ]; then
+                                   sudo docker rmi is:microPkg -f
+                               fi
+                              if [ &quot;$(sudo docker images -q is:micro)&quot; != &quot;&quot; ]; then
+                                   sudo docker rmi is:micro -f
+                               fi&apos;&apos;&apos;
+                        
         sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh build&apos; 
        sh label: &apos;&apos;, script: &apos;sudo $SAG_MSR_DIR/IntegrationServer/docker/is_container.sh buildPackage&apos; 
          }
@@ -256,6 +266,12 @@ DOCKER Configurations</description>
 
        stage(&apos;Start MSR&apos;) {
          steps {
+         sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -q -f name=msc_1)&quot; ]; then
+             if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
+                sudo docker stop msc_1
+            fi
+            sudo docker rm msc_1
+        fi&apos;&apos;&apos;
          sh label: &apos;&apos;, script: &apos; sudo docker run -d -p $SAG_MSR_DEFAULT_PORT:5555 --name msc_1 is:microPkg&apos;
          }
       }
