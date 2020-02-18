@@ -150,8 +150,8 @@ DOCKER Configurations</description>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_REPO_URL</name>
           <description></description>
-          <defaultValue>localhost:4443/pie/webmethods-microservicesruntime</defaultValue>
-          <trim>false</trim>
+          <defaultValue></defaultValue>
+          <trim>true</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>DOCKER_TAG</name>
@@ -219,7 +219,11 @@ DOCKER Configurations</description>
            }
           steps
           {  
-              sh label: &apos;&apos;, script:&apos;sudo $SAG_MSR_DIR/IntegrationServer/bin/startContainer.sh&apos;
+              sh label: &apos;&apos;, script: &apos;&apos;&apos;if [[ &quot;$SAG_INSTALLER_SANDBOX&quot; == *&quot;webM103&quot;* ]]; then
+                                          sudo $SAG_MSR_DIR/IntegrationServer/instances/default/bin/startup.sh
+                                        else
+                                          sudo $SAG_MSR_DIR/IntegrationServer/bin/startup.sh
+                                        fi&apos;&apos;&apos;
              
               sh label: &apos;&apos;, script: &apos;&apos;&apos; set +x
                                     echo &quot;Sleep until server is up&quot;
@@ -230,7 +234,11 @@ DOCKER Configurations</description>
                                     set -x&apos;&apos;&apos;
               sh label: &apos;&apos;, script: &apos;sudo java -classpath &quot;$SAG_DIR/wm-deploy.jar&quot;:&quot;$SAG_MSR_DIR/common/lib/*&quot;:&quot;$SAG_MSR_DIR/IntegrationServer/lib/*&quot;:&quot;$SAG_MSR_DIR/common/lib/glassfish/*&quot; com.softwareag.deployer.ConfigurationProvisioner $ACDL_FILE $ACDL_BIN_FILE $SAG_MSR_DEFAULT_PORT&apos;
 			
-			  sh label: &apos;&apos;, script:&apos;sudo $SAG_MSR_DIR/IntegrationServer/bin/shutdown.sh&apos;
+			  sh label: &apos;&apos;, script: &apos;&apos;&apos;if [[ &quot;$SAG_INSTALLER_SANDBOX&quot; == *&quot;webM103&quot;* ]]; then
+                                          sudo $SAG_MSR_DIR/IntegrationServer/instances/default/bin/shutdown.sh
+                                        else
+                                          sudo $SAG_MSR_DIR/IntegrationServer/bin/shutdown.sh
+                                        fi&apos;&apos;&apos;
            }
       }
       stage(&apos;Create Docker File&apos;) {
@@ -287,6 +295,11 @@ DOCKER Configurations</description>
       }
       
 	   stage(&apos;Push docker image&apos;) {
+	        when {
+               expression{
+                   return (&quot;${env.DOCKER_REPO_URL}&quot; != &apos;&apos;)
+               }
+           }
          steps {
         sh label: &apos;&apos;, script: &apos;&apos;&apos;
               sudo docker tag is:microPkg $DOCKER_REPO_URL:$DOCKER_TAG

@@ -37,35 +37,33 @@ Follow the steps described in [README](README.md) for Prerequisites and initial 
    ```
 
 7. This step is required for supplying password to Update Manager. 
-
-Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin (version- 10.3) in any desired location (lets say /opt/softwareag/sagsum103)
-
-   ```
-   sudo ./"SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin" --accept-license -d /opt/softwareag/sagsum103
-   ```
-
-   Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum103/bin
-   
-   Select option 9. Password Encryption, type Empower password to encrypt the password 
-   
-   Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under *resources* folder)
-   * empowerPwd=abcdefgh
+   * Download http://empowersdc.softwareag.com/dnld/wMInstaller/10.4/SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin
+   * Install SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin in any desired location (lets say /opt/softwareag/sagsum103)
+       ```
+       sudo ./"SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin" --accept-license -d /opt/softwareag/sagsum103
+       ```
+   * Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum103/bin
+   * Select option 9. Password Encryption, type Empower password to encrypt the password 
+   * Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under *resources* folder)
+       ```
+       empowerPwd=abcdefgh
+       ```
 
 8. If jenkins is installed, copy 'webmethods-microservicesruntime-samples/docker/jenkins/MSR_Docker' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
 
-  ```
-  sudo chmod 777 /var/lib/jenkins/jobs/MSR_Docker  -R
-  ```
+      ```
+      sudo chmod 777 /var/lib/jenkins/jobs/MSR_Docker  -R
+      ```
 
-  Restart the jenkins
+     Restart the jenkins
    ```
    sudo service jenkins restart
    ```
    
-9. Change permission for test.sh under *resource* folder
-  ```
-  sudo chmod 777 test.sh
-  ```
+9. Change permission for test.sh under *resources* folder
+      ```
+      sudo chmod 777 test.sh
+      ```
 
 10. Login to Jenkins dashboard (http://localhost:8080) and click on "MSR_Docker" job.
 
