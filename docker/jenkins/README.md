@@ -152,11 +152,11 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found below
 	
     ```
-    Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.7 
+    Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
     ```
          
     ```
-    Windows - C:\SoftwareAG\IntegrationServer\replicate\deployer\10.7
+    Windows - C:\SoftwareAG\IntegrationServer\replicate\deployer\10.5
      ```
     
 ## License
