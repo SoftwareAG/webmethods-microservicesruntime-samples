@@ -15,18 +15,20 @@ This project allows user to perform the following steps using the Jenkins pipeli
 1. Create directory /opt/softwareag in your environment. This is the default directory, you can set it to any other value. Please ensure to use this directory in the Jenkins job.
 
 2.	Clone the webmethods-microservicesruntime-samples repository. <br/>
-`git clone https://github.com/SoftwareAG/webmethods-microservicesruntime-samples.git`
+    ```
+    git clone https://github.com/SoftwareAG/webmethods-microservicesruntime-samples.git
+    ```
 
 3. If jenkins is installed, copy 'webmethods-microservicesruntime-samples/docker/jenkins/MSR_DockerHub' folder into '/var/lib/jenkins/jobs' and execute following command to grant access permission
 
-  ```
-  sudo chmod 777 /var/lib/jenkins/jobs/MSR_DockerHub  -R
-  ```
+      ```
+      sudo chmod 777 /var/lib/jenkins/jobs/MSR_DockerHub  -R
+      ```
 
-  Restart the jenkins
-   ```
-   sudo service jenkins restart
-   ```
+    Restart the jenkins
+    ```
+    sudo service jenkins restart
+    ```
 
 4. Optionally, if you need to configure Microservices runtime, copy isconfiguration.acdl and isconfiguration.zip files into 'webmethods-microservicesruntime-samples/docker/jenkins/resources` i.e. *resources* folder.
 
