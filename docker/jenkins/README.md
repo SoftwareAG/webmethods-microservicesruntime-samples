@@ -137,7 +137,7 @@ jenkins ALL=(ALL) NOPASSWD: ALL
     | PASSWORD    	| Password to access the MSR           	| manage                    	|
     | PORT        	| Port where the MSR runs              	| 5555                      	|
     | VERSIONTAG  	| Target version for exporting assests 	| 10.5                      	|
-  6. Examples
+6. Examples
       Linux:
         ```
         sudo java -classpath "wm-deploy.jar":"/opt/softwareag/msr_10.3/common/lib/*":"/opt/softwareag/msr_10.3/IntegrationServer/lib/*":"/opt/softwareag/msr_10.3/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests localhost Administrator manage 5555 10.5 
@@ -147,7 +147,8 @@ jenkins ALL=(ALL) NOPASSWD: ALL
         ```
         java -classpath "wm-deploy.jar";"C:\SoftwareAG\common\lib\*";"C:\SoftwareAG\IntegrationServer\lib\*";"C:\SoftwareAG\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests localhost Administrator manage 5555 10.5
         ```
-    6. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found below
+    7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found below
+	
          ```
         Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.7 
          ```
