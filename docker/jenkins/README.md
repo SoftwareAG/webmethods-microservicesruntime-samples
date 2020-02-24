@@ -150,7 +150,7 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     java -classpath "wm-deploy.jar";"C:\SoftwareAG\common\lib\*";"C:\SoftwareAG\IntegrationServer\lib\*";"C:\SoftwareAG\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5
     ```
         
-7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found below
+7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found in below location
 	
     ```
     Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
