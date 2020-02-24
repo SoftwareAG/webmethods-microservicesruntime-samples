@@ -117,9 +117,8 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     ```
     cd /opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources
     ```
-4. Run below command based on OS
+4. Run below command
 
-    Linux:
     ```
     sudo java -classpath "wm-deploy.jar":"{INSTALL_DIR}/common/lib/*":"{INSTALL_DIR}/IntegrationServer/lib/*":"{INSTALL_DIR}/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests {HOSTNAME} {PORT} {USERNAME} {PASSWORD} {VERSIONTAG} 
     ```
@@ -134,8 +133,8 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     | USERNAME    	| Username to access the MSR           	| Administrator             	|
     | PASSWORD    	| Password to access the MSR           	| manage                    	|
     | VERSIONTAG  	| Target version for exporting assests 	| 10.5                      	|
-6. Examples
-      Linux:
+6. Example
+
     ```
     sudo java -classpath "wm-deploy.jar":"/opt/softwareag/msr_10.3/common/lib/*":"/opt/softwareag/msr_10.3/IntegrationServer/lib/*":"/opt/softwareag/msr_10.3/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5 
     ```
@@ -144,7 +143,7 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
 7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found in below location
 	
     ```
-    Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
+    /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
     ```
  
     
