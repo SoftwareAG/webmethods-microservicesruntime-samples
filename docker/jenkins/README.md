@@ -105,7 +105,7 @@ Add below line to the file
 jenkins ALL=(ALL) NOPASSWD: ALL
 ```
 ## Create configuration files
-This sample allows creating the configuration files (isconfiguration.acdl and isconfiguration.zip) from running MSR. 
+This sample allows creating the configuration files (isconfiguration.acdl and isconfiguration.zip) from running webMethods Microservices Runtime. 
 1. Create directory /opt/softwareag in your environment. 
 
 2.	Clone the webmethods-microservicesruntime-samples repository into /opt/softwareag
