@@ -134,9 +134,9 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     |-------------	|--------------------------------------	|---------------------------	|
     | INSTALL_DIR 	| MSR installed directory              	| /opt/softwareag/msr_10.3 	|
     | HOSTNAME    	| Hostname where the MSR runs          	| localhost                 	|
+	| PORT        	| Port where the MSR runs              	| 5555                      	|
     | USERNAME    	| Username to access the MSR           	| Administrator             	|
     | PASSWORD    	| Password to access the MSR           	| manage                    	|
-    | PORT        	| Port where the MSR runs              	| 5555                      	|
     | VERSIONTAG  	| Target version for exporting assests 	| 10.5                      	|
 6. Examples
       Linux:
