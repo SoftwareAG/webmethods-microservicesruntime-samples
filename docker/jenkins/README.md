@@ -124,15 +124,11 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     sudo java -classpath "wm-deploy.jar":"{INSTALL_DIR}/common/lib/*":"{INSTALL_DIR}/IntegrationServer/lib/*":"{INSTALL_DIR}/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests {HOSTNAME} {PORT} {USERNAME} {PASSWORD} {VERSIONTAG} 
     ```
 
-    Windows:
-    ```
-    java -classpath "wm-deploy.jar";"{INSTALL_DIR}\common\lib\*";"{INSTALL_DIR}\IntegrationServer\lib\*";"{INSTALL_DIR}\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests {HOSTNAME} {PORT} {USERNAME} {PASSWORD}  {VERSIONTAG}
-    ```
 5. Parameters
 
     | Parmeters   	| Description                          	| Sample Values             	|
     |-------------	|--------------------------------------	|---------------------------	|
-    | INSTALL_DIR 	| MSR installed directory              	| /opt/softwareag/msr_10.3 	|
+    | INSTALL_DIR 	| MSR installed directory             	| /opt/softwareag/msr_10.3 	|
     | HOSTNAME    	| Hostname where the MSR runs          	| localhost                 	|
 	| PORT        	| Port where the MSR runs              	| 5555                      	|
     | USERNAME    	| Username to access the MSR           	| Administrator             	|
@@ -144,21 +140,13 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     sudo java -classpath "wm-deploy.jar":"/opt/softwareag/msr_10.3/common/lib/*":"/opt/softwareag/msr_10.3/IntegrationServer/lib/*":"/opt/softwareag/msr_10.3/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5 
     ```
         
-     Windows: 
- 
-    ```
-    java -classpath "wm-deploy.jar";"C:\SoftwareAG\common\lib\*";"C:\SoftwareAG\IntegrationServer\lib\*";"C:\SoftwareAG\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5
-    ```
         
 7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found in below location
 	
     ```
     Linux -  /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
     ```
-         
-    ```
-    Windows - C:\SoftwareAG\IntegrationServer\replicate\deployer\10.5
-     ```
+ 
     
 ## License
 
