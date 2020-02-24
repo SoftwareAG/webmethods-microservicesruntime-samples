@@ -105,34 +105,35 @@ Add below line to the file
 jenkins ALL=(ALL) NOPASSWD: ALL
 ```
 ## Create configuration files
-1. Create directory /opt/softwareag in your environment. This is the default directory, you can set it to any other value. Please ensure to use this directory in the Jenkins job.
+This sample allows creating the configuration files (isconfiguration.acdl and isconfiguration.zip) from running MSR. 
+1. Create directory /opt/softwareag in your environment. 
 
-2.	Clone the webmethods-microservicesruntime-samples repository. 
+2.	Clone the webmethods-microservicesruntime-samples repository into /opt/softwareag
     ```
       git clone https://github.com/SoftwareAG/webmethods-microservicesruntime-samples.git
     ```
 
 3.	Open Command prompt or Terminal based on the OS and Go to the resources directory of the repository.
     ```
-    cd webmethods-microservicesruntime-samples/docker/jenkins/resources
+    cd /opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources
     ```
 4. Run below command based on OS
 
     Linux:
     ```
-    sudo java -classpath "wm-deploy.jar":"{INSTALL_DIR}/common/lib/*":"{INSTALL_DIR}/IntegrationServer/lib/*":"{INSTALL_DIR}/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests {hostname} {username} {password} {port} {versionTag} 
+    sudo java -classpath "wm-deploy.jar":"{INSTALL_DIR}/common/lib/*":"{INSTALL_DIR}/IntegrationServer/lib/*":"{INSTALL_DIR}/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests {HOSTNAME} {PORT} {USERNAME} {PASSWORD} {VERSIONTAG} 
     ```
 
     Windows:
     ```
-    java -classpath "wm-deploy.jar";"{INSTALL_DIR}\common\lib\*";"{INSTALL_DIR}\IntegrationServer\lib\*";"{INSTALL_DIR}\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests {hostname} {username} {password} {port} {versionTag}
+    java -classpath "wm-deploy.jar";"{INSTALL_DIR}\common\lib\*";"{INSTALL_DIR}\IntegrationServer\lib\*";"{INSTALL_DIR}\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests {HOSTNAME} {PORT} {USERNAME} {PASSWORD}  {VERSIONTAG}
     ```
 5. Parameters
 
     | Parmeters   	| Description                          	| Sample Values             	|
     |-------------	|--------------------------------------	|---------------------------	|
     | INSTALL_DIR 	| MSR installed directory              	| /opt/softwareag/msr_10.3 	|
-    | HOSTNAME    	| Hostanme where the MSR runs          	| localhost                 	|
+    | HOSTNAME    	| Hostname where the MSR runs          	| localhost                 	|
     | USERNAME    	| Username to access the MSR           	| Administrator             	|
     | PASSWORD    	| Password to access the MSR           	| manage                    	|
     | PORT        	| Port where the MSR runs              	| 5555                      	|
@@ -140,13 +141,13 @@ jenkins ALL=(ALL) NOPASSWD: ALL
 6. Examples
       Linux:
     ```
-    sudo java -classpath "wm-deploy.jar":"/opt/softwareag/msr_10.3/common/lib/*":"/opt/softwareag/msr_10.3/IntegrationServer/lib/*":"/opt/softwareag/msr_10.3/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests localhost Administrator manage 5555 10.5 
+    sudo java -classpath "wm-deploy.jar":"/opt/softwareag/msr_10.3/common/lib/*":"/opt/softwareag/msr_10.3/IntegrationServer/lib/*":"/opt/softwareag/msr_10.3/common/lib/glassfish/*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5 
     ```
         
      Windows: 
  
     ```
-    java -classpath "wm-deploy.jar";"C:\SoftwareAG\common\lib\*";"C:\SoftwareAG\IntegrationServer\lib\*";"C:\SoftwareAG\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests localhost Administrator manage 5555 10.5
+    java -classpath "wm-deploy.jar";"C:\SoftwareAG\common\lib\*";"C:\SoftwareAG\IntegrationServer\lib\*";"C:\SoftwareAG\common\lib\glassfish\*" com.softwareag.deployer.ExportDeployerAssests localhost 5555 Administrator manage 10.5
     ```
         
 7. For above examples, the configuration files (isconfiguration.acdl and isconfiguration.zip) can be found below

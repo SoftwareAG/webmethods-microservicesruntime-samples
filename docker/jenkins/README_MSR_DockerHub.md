@@ -36,6 +36,8 @@ This project allows user to perform the following steps using the Jenkins pipeli
 
 6. Click "Build with Parameters" from the options in the left, provide valid parameters and click build. If everything is successful, you will see your Docker image published into the Docker registry with provided configuration.
    
+![Jenkins Stage View](stageview_dockerhub.png)
+   
 ## Jenkins Pipeline stages
 ##### Pull Docker  
   Pulls the Docker image from the given Docker repository
