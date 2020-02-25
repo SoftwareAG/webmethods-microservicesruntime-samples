@@ -145,7 +145,7 @@ This sample allows creating the configuration files (isconfiguration.acdl and is
     ```
     /opt/softwareag/msr_10.3/IntegrationServer/replicate/deployer/10.5 
     ```
-8. These configuration files (isconfiguration.acdl and isconfiguration.zip) can be used as an input in jenkins jobs  [MSR_Docker configure-msr ](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/blob/master/docker/jenkins/README_MSR_Docker.md#configure-msr) and [MSR_DockerHub configure-msr ](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/blob/master/docker/jenkins/README_MSR_DockerHub.md#configure-msr)
+8. These configuration files (isconfiguration.acdl and isconfiguration.zip) can be used as an input in jenkins pipeline stages  [MSR_Docker configure-msr ](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/blob/master/docker/jenkins/README_MSR_Docker.md#configure-msr) and [MSR_DockerHub configure-msr ](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/blob/master/docker/jenkins/README_MSR_DockerHub.md#configure-msr)
     
 ## License
 
