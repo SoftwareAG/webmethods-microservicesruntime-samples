@@ -46,7 +46,7 @@ This project allows user to perform the following steps using the Jenkins pipeli
  Starts the MSR in port 5555 within the  docker container 
 
 ##### Configure MSR
- Configures the MSR with given configuration files
+ Configures the MSR with given configuration files. To create configuration files refer [Create configuration files](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/tree/master/docker/jenkins#create-configuration-files)
 
 ##### Stop MSR
  Stop the running container

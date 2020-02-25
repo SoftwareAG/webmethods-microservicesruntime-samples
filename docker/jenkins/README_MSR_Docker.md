@@ -43,7 +43,7 @@ Follow the steps described in [README](README.md) for Prerequisites and initial 
        sudo ./"SoftwareAGUpdateManagerInstaller20190930(LinuxX86).bin" --accept-license -d /opt/softwareag/sagsum103
        ```
    * Execute UpdateManagerCMD.sh from  /opt/softwareag/sagsum103/bin
-   * Select option 9. Password Encryption, type Empower password to encrypt the password 
+   * Select option 9. Password Encryption, type your Empower password to encrypt the password 
    * Copy the encrypted password(lets say "abcdefgh") and replace empowerPwd as below format in sum.txt (if you follow above steps you would find sum.txt under *resources* folder)
        ```
        empowerPwd=abcdefgh
@@ -84,7 +84,7 @@ Jenkins job has multiple stages in the pipeline.
  Installs all the fixes to the installed MSR.
 
 ##### Configure MSR
- This step is conditional. If APPLY_CONFIGURATION is set to YES then based on supplied ACDL configuration files, the configurations will be applied to the installed MSR.
+ This step is conditional. If APPLY_CONFIGURATION is set to YES then based on supplied ACDL configuration files, the configurations will be applied to the installed MSR. To create configuration files refer [Create configuration files](https://github.com/SoftwareAG/webmethods-microservicesruntime-samples/tree/master/docker/jenkins#create-configuration-files)
 
 ##### Create Docker File
  Creates Docker file for the installed MSR with latest fixes and applied configurations.
