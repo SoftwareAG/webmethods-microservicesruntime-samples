@@ -10,7 +10,6 @@ This project allows user to perform the following steps using the Jenkins pipeli
 
 ## To install and run the sample
 
-### One time setup
 
 1. Create directory /opt/softwareag in your environment. This is the default directory, you can set it to any other value. Please ensure to use this directory in the Jenkins job.
 
