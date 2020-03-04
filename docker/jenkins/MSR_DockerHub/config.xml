@@ -17,7 +17,7 @@
         <hudson.model.StringParameterDefinition>
           <name>SAG_DIR</name>
           <description></description>
-          <defaultValue>/opt/softwareag/resources</defaultValue>
+          <defaultValue>/opt/softwareag/webmethods-microservicesruntime-samples/docker/jenkins/resources</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
