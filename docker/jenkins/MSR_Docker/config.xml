@@ -185,7 +185,10 @@ DOCKER Configurations</description>
                sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ -d $SAG_MSR_DIR ]; then
                                            sudo rm $SAG_MSR_DIR -r
                                         fi&apos;&apos;&apos;
-               sh label: &apos;&apos;, script: &apos;sudo sed -i &quot;s#^ServerURL=.*#ServerURL=\$SAG_INSTALLER_SANDBOX#g; s#^InstallDir=.*#InstallDir=\$SAG_MSR_DIR#g;  s#^integrationServer.LicenseFile.text=__VERSION1__,.*#integrationServer.LicenseFile.text=__VERSION1__,\$SAG_MSR_LICENSE_FILE#g; s#^IntegrationServerPort=__VERSION1__.*#IntegrationServerPort=__VERSION1__,\$SAG_MSR_DEFAULT_PORT#g; s#^IntegrationServerdiagnosticPort=__VERSION1__.*#IntegrationServerdiagnosticPort=__VERSION1__,\$SAG_MSR_DIAGNOSTIC_PORT#g; s#^Username=.*#Username=\$SAG_EMPOWER_USERNAME#g; s#^Password=.*#Password=\$SAG_EMPOWER_PASSWORD#g&quot; $SAG_INSTALLER_SCRIPT&apos; 
+                                        
+               sh label: &apos;&apos;, script: &apos;&apos;&apos;set +x 
+                                         sudo sed -i &quot;s#^ServerURL=.*#ServerURL=\$SAG_INSTALLER_SANDBOX#g; s#^InstallDir=.*#InstallDir=\$SAG_MSR_DIR#g;  s#^integrationServer.LicenseFile.text=__VERSION1__,.*#integrationServer.LicenseFile.text=__VERSION1__,\$SAG_MSR_LICENSE_FILE#g; s#^IntegrationServerPort=__VERSION1__.*#IntegrationServerPort=__VERSION1__,\$SAG_MSR_DEFAULT_PORT#g; s#^IntegrationServerdiagnosticPort=__VERSION1__.*#IntegrationServerdiagnosticPort=__VERSION1__,\$SAG_MSR_DIAGNOSTIC_PORT#g; s#^Username=.*#Username=\$SAG_EMPOWER_USERNAME#g; s#^Password=.*#Password=\$SAG_EMPOWER_PASSWORD#g&quot; $SAG_INSTALLER_SCRIPT 
+                                        set -x&apos;&apos;&apos;
                sh label: &apos;&apos;, script: &apos;sudo  $SAG_INSTALLER_BIN  -readScript $SAG_INSTALLER_SCRIPT  -console  -scriptErrorInteract no&apos;
            }
        }
