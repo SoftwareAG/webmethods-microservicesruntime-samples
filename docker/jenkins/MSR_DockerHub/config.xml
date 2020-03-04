@@ -80,6 +80,12 @@
         }
        stage(&apos;Start MSR&apos;) {
          steps {
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -aq -f name=msc_1)&quot; ]; then
+             if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
+                sudo docker stop msc_1
+            fi
+            sudo docker rm msc_1
+        fi&apos;&apos;&apos;
          sh label: &apos;&apos;, script: &apos;&apos;&apos; sudo docker run -d -p $SAG_MSR_DEFAULT_PORT:5555 --name msc_1 $DOCKER_REPO_URL:$DOCKER_TAG
 		                           sudo docker cp msc_1:/opt/softwareag /opt/softwareag/msc_1 &apos;&apos;&apos;
          }

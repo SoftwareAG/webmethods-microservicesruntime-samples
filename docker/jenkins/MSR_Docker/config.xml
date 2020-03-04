@@ -55,7 +55,7 @@ Empower Credentials</description>
           <description>
 
 Installer Configurations</description>
-          <defaultValue>{AQAAABAAAAAQ1Y/6ynoj0DX/f0Q6TmLuglV5y9gGyeg8YNgMq7X13TI=}</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.PasswordParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>SAG_INSTALLER_BIN</name>
@@ -266,7 +266,7 @@ DOCKER Configurations</description>
 
        stage(&apos;Start MSR&apos;) {
          steps {
-         sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -q -f name=msc_1)&quot; ]; then
+         sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -aq -f name=msc_1)&quot; ]; then
              if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
                 sudo docker stop msc_1
             fi
@@ -299,7 +299,7 @@ DOCKER Configurations</description>
       }
       stage(&apos;Stop MSR&apos;) {
          steps {
-        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -q -f name=msc_1)&quot; ]; then
+        sh label: &apos;&apos;, script: &apos;&apos;&apos;if [ &quot;$(sudo docker ps -aq -f name=msc_1)&quot; ]; then
              if [ ! &quot;$(sudo docker ps -aq -f status=exited -f name=msc_1)&quot; ]; then
                 # cleanup
                 sudo docker stop msc_1
