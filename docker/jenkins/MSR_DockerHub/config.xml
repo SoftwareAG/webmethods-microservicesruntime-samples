@@ -86,6 +86,9 @@
             fi
             sudo docker rm msc_1
         fi&apos;&apos;&apos;
+        sh label: &apos;&apos;, script:&apos;&apos;&apos;if [ &quot;$(sudo lsof -i:$SAG_MSR_DEFAULT_PORT -t)&quot; ]; then
+                                        sudo kill -9 $(sudo lsof -i:$SAG_MSR_DEFAULT_PORT -t)
+                                       fi&apos;&apos;&apos;
          sh label: &apos;&apos;, script: &apos;&apos;&apos; sudo docker run -d -p $SAG_MSR_DEFAULT_PORT:5555 --name msc_1 $DOCKER_REPO_URL:$DOCKER_TAG
 		                           sudo docker cp msc_1:/opt/softwareag /opt/softwareag/msc_1 &apos;&apos;&apos;
          }
