@@ -22,11 +22,11 @@ It is expected that you have basic knowledge of Docker, Kubernetes, Istio for ru
 2. If you don't have Kubernetes setup, download Docker Desktop appropriate for your OS. In these samples, we used [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows). 
 
 3. If using Docker Desktop, ensure that you allocate at least 6 GB memory in the resources. This is required for reliable performing operations of Istio.
-![Resources for Docker Desktop](../images/dockerDesktopResources.jpg)
+![Resources for Docker Desktop](images/dockerDesktopResources.jpg)
 
 4. If using Docker Desktop, make sure you have enabled Kubernetes support. 
 
-![Kubernetes for Docker Desktop](../images/dockerDesktopKubernetes.jpg)
+![Kubernetes for Docker Desktop](images/dockerDesktopKubernetes.jpg)
 
 5. If using, Docker Desktop, ensure it is up and running. You will be required to start Docker Desktop with Administrator access.
 
