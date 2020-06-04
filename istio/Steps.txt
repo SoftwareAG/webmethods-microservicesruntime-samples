@@ -1,0 +1,119 @@
+00-install
+==========
+
+kubectl apply -f istio-crds.yaml
+
+kubectl apply -f istio-demo.yaml
+
+kubectl get all -n istio-system
+
+kubectl label namespace default istio-injection=enabled
+
+kubectl describe namespace default
+
+01-deploy
+=========
+
+Review YAML Files
+
+kubectl apply -f bookinfo-v1.yaml
+
+kubectl apply -f bookinfo-gateway.yaml
+
+kubectl get pods
+
+kubectl get svc istio-ingressgateway -n istio-system
+
+kubectl describe pods -l app=productpage
+
+http://localhost/WmRoot/
+
+02-traffic
+==========
+
+Review YAML Files - details-bad-release.yaml
+
+kubectl apply -f details-virtualservice.yaml
+
+kubectl apply -f details-bad-release.yaml
+
+kubectl logs -f -l app=details -c details
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (Odd calls returns after 30 seconds and an error)
+
+
+
+Review YAML Files - details-virtualservice-timeout.yaml
+
+kubectl apply -f details-virtualservice-timeout.yaml
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (Timeout in 5 seconds)
+
+
+Review YAML Files - details-virtualservice-retry.yaml
+
+kubectl apply -f details-virtualservice-retry.yaml
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (No error is thrown, response sent after 30 seconds)
+
+kubectl delete -f details-bad-release.yaml
+
+From 01-deploy 
+
+kubectl apply -f bookinfo-v1.yaml
+
+03-testing
+==========
+
+Review YAML Files - reviews-v2.yaml
+
+kubectl apply -f reviews-v2.yaml
+
+kubectl get pods -l app=reviews
+
+kubectl describe svc reviews
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (version v1 and v2 displayed)
+
+04-canary
+=========
+
+Review YAML Files - reviews-canary-0-100.yaml and reviews-canary-25-75.yaml
+
+kubectl apply -f reviews-canary-0-100.yaml
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (only v1 gets displayed)
+
+kubectl apply -f reviews-canary-25-75.yaml
+
+POSTMAN - http://localhost/invoke/bookApp:getProductDetails?id=1 (v1 and v2 gets displayed based on weightage)
+
+05-Network-Kiali
+================
+
+Review YAML files - kiali.yaml
+
+kubectl apply -f kiali.yaml
+
+http://localhost:15029 (admin/admin)
+
+06-Jaeger
+=========
+
+Review YAML files - jaegar.yaml
+
+kubectl apply -f jaegar.yaml
+
+http://localhost:15032 
+
+07-Prometheus-Grafana
+=====================
+
+Review YAML files - grafana.yaml and prometheus.yaml
+
+kubectl apply -f prometheus.yaml
+
+kubectl apply -f grafana.yaml
+
+http://localhost:15031
+

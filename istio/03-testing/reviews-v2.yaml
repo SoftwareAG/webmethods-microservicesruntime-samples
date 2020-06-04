@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v2
+  labels:
+    app: reviews
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v2
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+        - name: reviews
+          image: softwareagsamples/msr-bookinfo-reviews:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5555
+          env:
+            - name: SERVICE_VERSION
+              value: v2
+            

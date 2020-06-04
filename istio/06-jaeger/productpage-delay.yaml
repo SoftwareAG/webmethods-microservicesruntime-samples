@@ -1,0 +1,29 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: bookinfo
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - bookinfo-gateway
+  http:
+  - match:
+    - uri:
+        exact: /productpage
+    - uri:
+        prefix: /api/v1/products
+    - uri:
+        prefix: /invoke        
+    - uri:
+        prefix: /WmRoot                
+    route:
+    - destination:
+        host: productpage
+        port:
+          number: 5555
+    fault:
+      delay:
+        percentage:
+          value: 5
+        fixedDelay: 10s
