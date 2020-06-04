@@ -10,7 +10,7 @@ There are four packages in this application. Each package is deployed as a Micro
 
 3. Swagger file for each of the package is under resources folder in the package.
 
-Packages used in the Docker images are located under [packages](packages) directory. 
+Packages used in the Docker images are located under [packages](../packages) directory. 
 
 
 
